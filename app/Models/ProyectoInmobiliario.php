@@ -27,4 +27,26 @@ class ProyectoInmobiliario extends Model
             $model->{$model->getKeyName()} = (string) \Str::uuid();
         });
     }
+
+    public function scopeBuscar($query, $filtros){
+        $criterios = [
+            'nombre_proyecto' => function($query, $nombre){
+                $query->where('nombre_proyecto', 'LIKE', "%$nombre%");
+            },
+            'ubicacion' => function($query, $ubicacion){
+                $query->where('ubicacion', 'LIKE', "%$ubicacion%");
+            },
+            'estado' => function($query, $estado){
+                $query->where('estado', 'LIKE', "%$estado%");
+            },
+        ];
+
+        foreach ($criterios as $filtro =>$accion){
+            if (isset($filtros[$filtro])) {
+                $accion($query, $filtros[$filtro]);
+            }
+        }
+
+        return $query;
+    }
 }
