@@ -25,6 +25,7 @@ Route::post('/insertar-clientes', [App\Http\Controllers\ClienteController::class
 
 #Proyectos Inmobiliarios
 Route::get('/listar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'index']);
+Route::get('/buscar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'search']);
 Route::post('/insertar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'store']);
 
 #Unidad Propiedad

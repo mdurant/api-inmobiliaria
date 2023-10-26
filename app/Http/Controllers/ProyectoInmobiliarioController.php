@@ -16,6 +16,12 @@ class ProyectoInmobiliarioController extends Controller
         return response()->json($proyectoInmobiliario, 200);
     }
 
+    public function search(Request $request)
+    {
+        $proyectos = ProyectoInmobiliario::buscar($request->all())->get();
+        return response()->json($proyectos);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
