@@ -14,8 +14,6 @@ class ProyectoInmobiliarioController extends Controller
     {
         $proyectoInmobiliario = ProyectoInmobiliario::all();
         return response()->json($proyectoInmobiliario, 200);
-        //$proyectoInmobiliario = ProyectoInmobiliario::all();
-        //return response()->json($proyectoInmobiliario);
     }
 
     /**

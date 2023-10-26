@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('proyecto_inmobiliarios', function (Blueprint $table) {
+        Schema::create('unidades', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nombre_proyecto');
-            $table->text('descripcion');
-            $table->string('ubicacion');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
-            $table->enum('estado', ['En Construcción', 'Terminado', 'Cancelado', 'Otro']);
+            $table->integer('numero');
+            $table->enum('tipo_unidad', ['Departamento', 'Casa', 'Oficina', 'Estacionamiento', 'Bodega', 'Otro']);
+            $table->string('metraje');
+            $table->double('precio');
+            $table->enum('estado', ['Disponible', 'Vendido(a)', 'Reservado', 'Otro']);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proyecto_inmobiliarios');
+        Schema::dropIfExists('unidades');
     }
 };
