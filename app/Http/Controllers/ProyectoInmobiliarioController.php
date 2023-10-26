@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class ProyectoInmobiliarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $proyectoInmobiliario = ProyectoInmobiliario::all();
