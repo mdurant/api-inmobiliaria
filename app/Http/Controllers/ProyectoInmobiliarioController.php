@@ -68,9 +68,31 @@ class ProyectoInmobiliarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProyectoInmobiliario $proyectoInmobiliario)
+    public function update(Request $request, $id)
     {
-        //
+        // Encuentra el proyecto por ID
+        $proyecto = ProyectoInmobiliario::find($id);
+
+        // Si no se encuentra el proyecto, devuelve un error 404
+        if (!$proyecto) {
+            return response()->json(['error' => 'Proyecto no encontrado'], 404);
+        }
+
+        // Valida los datos enviados en la solicitud
+        $validatedData = $request->validate([
+            'nombre_proyecto' => 'sometimes|string|max:255',
+            'descripcion'     => 'sometimes|string',
+            'ubicacion'       => 'sometimes|string|max:255',
+            'fecha_inicio'    => 'sometimes|date',
+            'fecha_fin'       => 'sometimes|date',
+            'estado'          => 'sometimes|in:En Construcción,Terminado,Cancelado,Otro',
+        ]);
+
+        // Actualiza el proyecto con los datos validados
+        $proyecto->update($validatedData);
+
+        // Devuelve el proyecto actualizado
+        return response()->json($proyecto);
     }
 
     /**

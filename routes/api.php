@@ -27,6 +27,7 @@ Route::post('/insertar-clientes', [App\Http\Controllers\ClienteController::class
 Route::get('/listar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'index']);
 Route::get('/buscar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'search']);
 Route::post('/insertar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'store']);
+Route::put('/proyectos-inmobiliarios/{id}', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'update']);
 
 #Unidad Propiedad
 Route::get('/listar-unidades', [App\Http\Controllers\UnidadController::class, 'index']);
