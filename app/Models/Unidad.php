@@ -29,6 +29,15 @@ class Unidad extends Model
             $model->{$model->getKeyName()} = (string) \Str::uuid();
         });
     }
+
+    public function proyectoInmobiliario()
+    {
+      return $this->belongsTo(ProyectoInmobiliario::class);
+    }
+
+    public function cliente(){
+      return $this->belongsTo(Cliente::class);
+    }
 }
 
 

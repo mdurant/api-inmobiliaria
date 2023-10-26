@@ -100,6 +100,25 @@ class ProyectoInmobiliarioController extends Controller
      */
     public function destroy(ProyectoInmobiliario $proyectoInmobiliario)
     {
-        //
+        try {
+
+            $proyectoInmobiliario->forceDelete();
+            return response()->json(['message' => 'Proyecto eliminado con éxito'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error al eliminar el proyecto'], 500);
+        }
+    }
+
+    public function getUnidades($proyectoId)
+    {
+        $proyecto = ProyectoInmobiliario::find($proyectoId);
+
+        if (!$proyecto) {
+            return response()->json(['error' => 'Proyecto no encontrado'], 404);
+        }
+
+        $unidades = $proyecto->unidades;
+
+        return response()->json($unidades, 200);
     }
 }

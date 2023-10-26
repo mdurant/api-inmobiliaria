@@ -49,4 +49,9 @@ class ProyectoInmobiliario extends Model
 
         return $query;
     }
+
+    public function unidades()
+    {
+      return $this->hasMany(Unidad::class);
+    }
 }

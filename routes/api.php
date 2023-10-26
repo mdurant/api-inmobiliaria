@@ -28,6 +28,9 @@ Route::get('/listar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioContro
 Route::get('/buscar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'search']);
 Route::post('/insertar-proyectos', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'store']);
 Route::put('/proyectos-inmobiliarios/{id}', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'update']);
+Route::delete('/proyectos-inmobiliarios/{id}', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'destroy']);
+Route::get('/proyectos_inmobiliarios/{proyectoId}/unidades', [App\Http\Controllers\ProyectoInmobiliarioController::class, 'getUnidades']);
+
 
 #Unidad Propiedad
 Route::get('/listar-unidades', [App\Http\Controllers\UnidadController::class, 'index']);
