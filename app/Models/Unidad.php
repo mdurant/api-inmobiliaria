@@ -21,6 +21,7 @@ class Unidad extends Model
         'metraje',
         'precio',
         'estado',
+        'proyecto_inmobiliario_id',
     ];
 
     protected static function  boot(){

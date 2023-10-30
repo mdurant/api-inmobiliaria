@@ -34,10 +34,15 @@ class UnidadController extends Controller
             'tipo_unidad' => 'required|string',
             'metraje' => 'required|string',
             'precio' => 'required|numeric',
-            'estado' => 'required|string'
+            'estado' => 'required|string',
+            'proyecto_inmobiliario_id' => 'required|string'
         ]);
 
-        $unidad = unidad::create($data);
+
+
+        $unidad = Unidad::create($data);
+        dd($unidad);
+        Log::info('Unidad data:', ['unidad' => $unidad]);
 
         return response()->json(['unidad' =>$unidad, 'message'=>'Unidad Propiedad creada correctamente'], 201);
     }

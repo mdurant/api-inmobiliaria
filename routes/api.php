@@ -1,17 +1,3 @@
-/**
- * @OA\Info(
- *      version="1.0.0",
- *      title="Nombre de tu API",
- *      description="Descripción detallada de tu API",
- *      @OA\Contact(
- *          email="contacto@tuempresa.com"
- *      ),
- *      @OA\License(
- *          name="Licencia Propia",
- *          url="URL-a-la-licencia.com"
- *      )
- * )
- */
 <?php
 
 use Illuminate\Http\Request;
