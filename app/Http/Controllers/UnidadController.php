@@ -13,6 +13,13 @@ class UnidadController extends Controller
     public function index()
     {
         $unidad = Unidad::all();
+        if ($unidad->isEmpty()) {
+            return response()->json([
+                'status' => 200,
+                'message' => 'No se encontraron unidades o la consulta está vacía',
+                'data' =>[]
+            ], 200);
+        }
         return response()->json($unidad, 200);
     }
 

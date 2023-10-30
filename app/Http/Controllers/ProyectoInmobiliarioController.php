@@ -11,6 +11,13 @@ class ProyectoInmobiliarioController extends Controller
     public function index()
     {
         $proyectoInmobiliario = ProyectoInmobiliario::all();
+        if($proyectoInmobiliario->isEmpty()){
+            return response()->json([
+                'status' => 200,
+                'message' => 'No se encontraron proyectos inmobiliarios o la consulta está vacía',
+                'data' =>[]
+            ], 200);
+        }
         return response()->json($proyectoInmobiliario, 200);
     }
 
